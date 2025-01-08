@@ -1,17 +1,16 @@
 # nuka-Population-trends
-石川県金沢市額地区の人口推移を調べるためのリポジトリ
+金沢市額地区の人口推移を調査するリポジトリです。
 
-## 依存関係
+## 必要なツール
 - `curl`
 
-
 ## セットアップ
-`data`ディレクトリの中には以下のページで配布されているエクセルファイルを配置します。
-https://www4.city.kanazawa.lg.jp/soshikikarasagasu/chosatokeishitsu/gyomuannai/1/3/2/7855.html
-これらを一括で`data`ディレクトリにダウンロードするため、makefileをもいると良いでしょう。
-`make init`を実行すると、`data`ディレクトリの中に2012~2024年までの人口データがダウンロードされます。
+1. 以下のページから配布されているエクセルファイルをダウンロードし、`data`ディレクトリに配置します。  
+   [金沢市人口データ配布ページ](https://www4.city.kanazawa.lg.jp/soshikikarasagasu/chosatokeishitsu/gyomuannai/1/3/2/7855.html)  
+2. 一括ダウンロードには`makefile`を利用すると便利です。
+   - `make init`を実行すると、2012年から2024年までの人口データが`data`ディレクトリにダウンロードされます。
 
-## ファイル説明
+## ディレクトリ構成
 
 ```bash
 $ tree -I venv
@@ -20,16 +19,7 @@ $ tree -I venv
 ├── data
 │   ├── gbrm42499.xls
 │   ├── gbrm42599.xls
-│   ├── gbrm42699.xls
-│   ├── gbrm42799.xls
-│   ├── gbrm42899.xls
-│   ├── gbrm42999.xls
-│   ├── gbrm43099.xls
-│   ├── gbrm43199.xls
-│   ├── gbrm50299.xls
-│   ├── gbrm50399.xls
-│   ├── gbrm50412.xls
-│   ├── gbrm50512.xls
+│   ├── ...（省略）
 │   └── gbrm50612.xls
 ├── main.ipynb
 ├── makefile
@@ -41,10 +31,14 @@ $ tree -I venv
 1 directory, 20 files
 ```
 
-- `nuka_population_trend.png`は金沢市額地区の2013~2024年までの人口推移を表しています。
-- `main.ipynb`は主にエクセルデータから`result.csv`を生成するためのファイルです。
-- `plot.ipynb`は`result.csv`から額地区の人口推移を表すグラフを生成するためのファイルです。
+- **`nuka_population_trend.png`**  
+  金沢市額地区の2013年から2024年までの人口推移グラフを表しています。
+- **`main.ipynb`**  
+  エクセルデータを処理して`result.csv`を生成するためのスクリプトです。
+- **`plot.ipynb`**  
+  `result.csv`から額地区の人口推移グラフを生成するスクリプトです。
+- **`result.csv`**  
+  汎用的な形式で額地区の人口データをまとめたファイルです。
 
-## その他
-`result.csv`は汎用性の高いデータとなっています。
-もともと公開されているものですし、適宜使ってください。
+## 注意事項
+- `result.csv`は公開データを元に生成されており、他の用途にも適宜ご利用いただけます。
