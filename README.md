@@ -1,6 +1,10 @@
 # nuka-Population-trends
 金沢市額地区の人口推移を調査するリポジトリです。
 
+## このリポジトリの成果物
+2013年~2024年までの人口推移です。
+![image](./nuka_population_trend.png)
+
 ## 必要なツール
 - `curl`
 
